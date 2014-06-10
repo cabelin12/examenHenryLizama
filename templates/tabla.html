@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registro Tabla</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background: #D33131">
+    <div class="container">
+        <div class="navbar-header">
+                                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="/"><span style="color:#fff">Registro de entradas</span></a>
+        </div>
+
+
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li ><a href="/">Tabla</a></li>
+                <li ><a href="/registro">Registro</a></li>
+                <li ><a href="/admin">Administrador</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container" style="margin-top: 50px;">
+    <h1>{% block titulo %} Tabla de personas {% endblock titulo %}</h1>
+
+
+    {% block contenido %}
+    <table class="table">
+     <thead>
+      <tr>
+       <th>Nombre</th>
+       <th>Accion</th>
+       <th>Fecha</th>
+      </tr>
+     </thead>
+     <tbody>
+      {% for persona in personas%}
+      <tr>
+      {% if forloop.last %}
+       <td>{{ persona.nombre }}</td>
+       <td>{{ persona.accion }}</td>
+       <td>{{ persona.fecha }}</td>
+      </tr>
+    {% endif %}
+      {% endfor %}
+     </tbody>
+    </table>
+
+    {% endblock contenido %}
+
+</div>
+</body>
+</html>
